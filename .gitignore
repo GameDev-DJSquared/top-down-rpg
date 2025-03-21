@@ -76,3 +76,4 @@ crashlytics-build.properties
 # this is just for me Justin :P
 
 /[Aa]ssets/[Ss]cripts/TimeTracker.cs
+EditorSessionLog.txt
