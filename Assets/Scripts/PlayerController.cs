@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
             isAttacking = true;
         }
 
-        if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.I))
+        if(Input.GetKeyDown(KeyCode.I))
         {
 
             uiMan.ToggleInventory();
