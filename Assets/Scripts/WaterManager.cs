@@ -39,9 +39,9 @@ public class WaterManager : MonoBehaviour
             }
         }
 
-        Debug.Log("Collecting " + isCollecting);
-        Debug.Log("Touching " + isTouching);
-        Debug.Log("Water: " + currentWater);
+        //Debug.Log("Collecting " + isCollecting);
+        //Debug.Log("Touching " + isTouching);
+        //Debug.Log("Water: " + currentWater);
     }
 
     public void AddWater(int waterToChange)
