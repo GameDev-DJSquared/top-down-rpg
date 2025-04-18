@@ -23,13 +23,21 @@ public class WaterBehavior : MonoBehaviour
     {
         if (other.collider.tag == "Player" && other.transform.position.x < 0)
         {
-            playerController.notifySprite.SetActive(true);
+            if(waterMan.currentWater < waterMan.maxWater)
+            {
+                playerController.notifySprite.SetActive(true);
+
+            }
             waterMan.isCollecting = true;
             waterMan.isTouching = true;
         }
         else if (other.collider.tag == "Player" && other.transform.position.x > 0)
         {
-            playerController.notifySprite.SetActive(true);
+            if(waterMan.currentWater > 0)
+            {
+                playerController.notifySprite.SetActive(true);
+
+            }
 
             waterMan.isWatering = true;
             waterMan.isTouching = true;

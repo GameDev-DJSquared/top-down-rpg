@@ -60,6 +60,7 @@ public class WaterManager : MonoBehaviour
         {
             currentWater -= waterToChange;
             waterPercentage += waterToChange;
+            WateredArea.instance.SetAlpha((float)waterPercentage / 100);
         }
         if (waterPercentage == 100)
         {
