@@ -13,10 +13,12 @@ public class WaterManager : MonoBehaviour
     private int waterToChange = 10;
     [SerializeField]
     private int waterPercentage = 0;
+
+    PlayerController playerController;
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
@@ -39,14 +41,14 @@ public class WaterManager : MonoBehaviour
             }
         }
 
-        Debug.Log("Collecting " + isCollecting);
-        Debug.Log("Touching " + isTouching);
-        Debug.Log("Water: " + currentWater);
+        //Debug.Log("Collecting " + isCollecting);
+        //Debug.Log("Touching " + isTouching);
+        //Debug.Log("Water: " + currentWater);
     }
 
     public void AddWater(int waterToChange)
     {
-        if (currentWater < maxWater)
+        if (currentWater < maxWater && playerController.InventorySpaceLeft() > 0)
         {
             currentWater += waterToChange;
         }
@@ -58,6 +60,7 @@ public class WaterManager : MonoBehaviour
         {
             currentWater -= waterToChange;
             waterPercentage += waterToChange;
+            WateredArea.instance.SetAlpha((float)waterPercentage / 100);
         }
         if (waterPercentage == 100)
         {
