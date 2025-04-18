@@ -13,10 +13,12 @@ public class WaterManager : MonoBehaviour
     private int waterToChange = 10;
     [SerializeField]
     private int waterPercentage = 0;
+
+    PlayerController playerController;
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
@@ -46,7 +48,7 @@ public class WaterManager : MonoBehaviour
 
     public void AddWater(int waterToChange)
     {
-        if (currentWater < maxWater)
+        if (currentWater < maxWater && playerController.InventorySpaceLeft() > 0)
         {
             currentWater += waterToChange;
         }

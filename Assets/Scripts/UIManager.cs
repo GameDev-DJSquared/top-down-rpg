@@ -20,6 +20,8 @@ public class UIManager : MonoBehaviour
     public Slider waterBar;
     public TextMeshProUGUI waterText;
 
+    public TextMeshProUGUI inventorySpaceText;
+
     public CanvasGroup inventoryGroup;
     public Button[] inventorySlots;
     public Image[] inventoryImages;
@@ -66,7 +68,9 @@ public class UIManager : MonoBehaviour
         weaponText.text = "Weapon Level: " + weaponMan.currentLevel;
 
 
-        if(IsInventoryOpen())
+        inventorySpaceText.text = "Space Left: " + playerController.InventorySpaceLeft();
+
+        if (IsInventoryOpen())
         {
             potionCount.text = playerController.potionCount.ToString();
             inventoryCapacity.text = playerController.InventorySpaceLeft().ToString();

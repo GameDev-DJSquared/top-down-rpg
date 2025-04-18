@@ -648,7 +648,9 @@ MonoBehaviour:
 
     Attack/Use Item: T or Space
 
-    Open Inventory: I'
+    Open Inventory: Q
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47e5a57ef80b643eaa2df65651ba1e6f, type: 2}
   m_sharedMaterial: {fileID: -8133420788942422245, guid: 47e5a57ef80b643eaa2df65651ba1e6f, type: 2}

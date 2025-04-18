@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public int inventoryCapacity = 10;
     public GameObject swordPrefab;
     public GameObject potionPrefab;
+
+    public GameObject notifySprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -76,7 +78,7 @@ public class PlayerController : MonoBehaviour
             isAttacking = true;
         }
 
-        if(Input.GetKeyDown(KeyCode.I))
+        if(Input.GetKeyDown(KeyCode.Q))
         {
 
             uiMan.ToggleInventory();
@@ -103,8 +105,8 @@ public class PlayerController : MonoBehaviour
                         {
                             Instantiate(swordPrefab, transform.position, Quaternion.identity);
                             hasSword = false;
-                            uiMan.CloseInventory();
-                            canMove = true;
+                            //uiMan.CloseInventory();
+                            //canMove = true;
                         }
                         break;
                     case UIManager.ItemType.Potion:
@@ -113,13 +115,13 @@ public class PlayerController : MonoBehaviour
                         {
                             potionCount--;
                             Instantiate(potionPrefab, transform.position, Quaternion.identity);
-                            uiMan.CloseInventory();
-                            canMove = true;
+                            //uiMan.CloseInventory();
+                            //canMove = true;
 
                         }
                         break;
                     case UIManager.ItemType.Water:
-
+                        waterMan.currentWater -= 10;
                         break;
                 }
             }
@@ -163,7 +165,7 @@ public class PlayerController : MonoBehaviour
                         }
                         break;
                     case "Sword":
-                        if (!hasSword)
+                        if (!hasSword && InventorySpaceLeft() > 0)
                         {
                             hasSword = true;
                             col.gameObject.SetActive(false);
@@ -182,5 +184,8 @@ public class PlayerController : MonoBehaviour
     {
         return inventoryCapacity - (hasSword ? 1 : 0) - potionCount - (waterMan.currentWater / 10);
     }
+
+
+
 
 }
